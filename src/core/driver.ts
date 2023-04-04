@@ -14,8 +14,8 @@ export class Driver {
         const browserInstance: BrowserType<{}> = await this.browserFactory(browserName);;
         this.browser = await browserInstance.launch(
         {
-            headless: false,
-
+            headless: true,
+            //slowMo: 100
         }
         );
         this.context = await this.browser.newContext();
