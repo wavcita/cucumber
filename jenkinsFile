@@ -5,26 +5,27 @@ pipeline {
         stage('Clone Repo') {
             steps {
                 echo 'Cloning...'
-				git branch: 'main', url: 'https://github.com/agonzales411/ariel-lab-6-mod-3-e2e.git'				
+				git branch: 'main', url: 'https://github.com/wavcita/cucumber.git'
+                //git branch: 'main', url: 'https://github.com/agonzales411/ariel-lab-6-mod-3-e2e.git'				
             }
         }
         stage('Review Repo') {
             steps {
                 echo 'Revieweing...'
-				bat 'dir'
+				//bat 'dir'
             }
         }
         stage('Build Project') {
             steps {
                 echo 'Building....'
-				bat 'npm install'
+				sh 'npm install'
             }
         }
 		stage('Execute Automation Tests') {
             steps {
                 echo 'Testing....'
                 catchError {
-                    bat 'npm run test'
+                    sh 'npm run test'
                 }
             }
         }
